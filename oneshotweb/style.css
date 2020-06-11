@@ -1,0 +1,79 @@
+html {
+  --widescreen-bg: url("https://i.imgur.com/hNKlHjV.png");
+  --five-two-bg: url("https://i.imgur.com/IsqD0ba.png");
+  --ultra-widescreen-bg: url("https://i.imgur.com/8hdxPr4.png");
+  --width-bg: 0;
+  --choice-option: 17.5vh;
+}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+.text {
+  color: #FFF;
+  font-family: 'Terminus';
+  font-size: 5vh;
+  margin: 0 calc(calc(100vw - calc(calc(100vh / 3) * 4)) / 2) 0 calc(calc(100vw - calc(calc(100vh / 3) * 4)) / 2);
+}
+#choice {
+  font-size: 3vh;
+  position: absolute;
+  left: 95vh;
+  bottom: var(--choice-option);
+}
+@font-face {
+  font-family: 'Terminus';
+  src: url('terminusttf-webfont.woff2') format('woff2'), /* Modern Browsers */
+       url('terminusttf-webfont.woff') format('woff'), /* Modern Browsers */
+       url('TerminusTTF.ttf')  format('truetype'); /* Safari, Android, iOS */
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  image-rendering: -moz-crisp-edges;   /*     Pixelate     */
+  image-rendering: -webkit-crisp-edges;/*       The        */
+  image-rendering: pixelated;          /*      Image       */
+  image-rendering: crisp-edges;        /*                  */
+  background-size: var(--width-bg) 100vh;
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+}
+#startButton, #optionsButton, #exitButton {
+  position: absolute;
+  left: 100vh;
+}
+#startButton {
+  bottom: 17vh;
+}
+#optionsButton {
+  bottom: 10vh;
+}
+#exitButton {
+  bottom: 3vh;
+}
+@media (max-aspect-ratio: 16/9) {
+  body {
+    background-image: var(--widescreen-bg); /* Widescreen niko */
+    --width-bg: calc(calc(100vh / 9) * 16);
+  }
+}
+@media (min-aspect-ratio: 16/9) and (max-aspect-ratio: 5/2) {
+  body {
+    background-image: var(--five-two-bg); /* 5/2 niko */
+    --width-bg: calc(calc(100vh / 2) * 5);
+  }
+}
+@media  (min-aspect-ratio: 5/2)/* and (max-aspect-ratio: 4/1)*/ {
+  body {
+    background-image: var(--ultra-widescreen-bg); /* Ultrawidescreen niko */
+    --width-bg: calc(100vh * 4);
+  }
+}/*
+@media  (min-aspect-ratio: 4/1) {
+  body {
+    background-image: url("https://i.imgur.com/1lP8EpZ.png"), url("https://i.imgur.com/8hdxPr4.png"), url("https://i.imgur.com/rq72MMO.png"); /* Ultrawidescreen niko with padding
+    background-size: calc(calc(100%-calc(100vh*4))/2) 100vh, calc(100vh*4) 100vh, calc(calc(100%-calc(100vh*4))/2) 100vh;
+    background-repeat: repeat, no-repeat, repeat;
+    background-position: 0 0, 50% 0, calc(50%+calc(100vh*2), 0);
+  }
+}*/
